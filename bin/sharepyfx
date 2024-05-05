@@ -1,2 +1,1 @@
-
-/data/data/com.termux/files/usr/bin/python $PREFIX/opt/sharepyfx/sharepyfx.py $1 $2
+$PREFIX/bin/python $PREFIX/opt/sharepyfx/sharepyfx.py $1 $2
