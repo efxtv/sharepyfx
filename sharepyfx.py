@@ -3,8 +3,8 @@ import sys
 import telebot
 
 # YOU CAN MODIFY 
-# BOT_TOKEN = 'MODIFY'
-# GROUP_CHAT_ID = 'MODIFY'
+# BOT_TOKEN = 'change'
+# GROUP_CHAT_ID = 'change'
 # INSTALL PYTHON AND TELEBOT
 
 BOT_TOKEN = 'MODIFY'
