@@ -39,12 +39,19 @@ def share_all_files(directory):
     except Exception as e:
         send_message(f'Error sharing files: {str(e)}')
 
+def reset_config():
+    try:
+        os.system("$HOME/.sharepyfx/reset.sh")
+    except Exception as e:
+        send_message(f'Error resetting configuration: {str(e)}')
+
 def print_help():
     print("Usage: python sharefx.py <option> <argument>")
     print("-h : Print this help message")
-    print("-all <directory> : Share all files from the specified directory")
+    print("-a <directory> : Share all files from the specified directory")
     print("-c <file_path> : Share the content of the specified file as text")
     print("-f <file_path> : Share the specified file")
+    print("-r : Reset configuration")
 
 if len(sys.argv) < 2:
     print("Error: No option provided.")
@@ -56,7 +63,7 @@ option = sys.argv[1]
 if option == "-h":
     print_help()
     sys.exit(0)
-elif option == "-all":
+elif option == "-a":
     if len(sys.argv) != 3:
         print("Error: Missing directory argument.")
         print_help()
@@ -86,8 +93,9 @@ elif option == "-f":
         print(f"Error: '{file_path}' is not a valid file.")
         sys.exit(1)
     upload_file(file_path)
+elif option == "-r":
+    reset_config()
 else:
     print("Error: Invalid option.")
     print_help()
     sys.exit(1)
-
