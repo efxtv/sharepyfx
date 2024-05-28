@@ -1,1 +1,36 @@
-$PREFIX/bin/python $PREFIX/opt/sharepyfx/sharepyfx.py $1 $2
+#!/bin/bash
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Detect the operating system
+if command_exists termux-info; then
+    OS="Termux"
+elif command_exists lsb_release; then
+    OS=$(lsb_release -si)
+else
+    OS=$(uname -s)
+fi
+
+# Determine the correct Python path based on the operating system
+case "$OS" in
+    "Termux")
+        PYTHON_PATH="$PREFIX/bin/python"
+        ;;
+    "Ubuntu" | "Debian" | "Kali" | "Arch" | "Manjaro" | "Fedora")
+        PYTHON_PATH="/usr/bin/python3"
+        ;;
+    *)
+        echo "Unsupported OS: $OS"
+        exit 1
+        ;;
+esac
+
+# Define the script path
+SCRIPT_PATH="$HOME/.sharepyfx/sharepyfx.py"
+
+# Execute the Python script with the provided arguments
+$PYTHON_PATH $SCRIPT_PATH "$1" "$2"
+
