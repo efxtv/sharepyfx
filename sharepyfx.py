@@ -2,7 +2,7 @@ import os
 import sys
 import telebot
 
-# YOU CAN MODIFY 
+# YOU CAN change modify 
 # BOT_TOKEN = 'change'
 # GROUP_CHAT_ID = 'change'
 # INSTALL PYTHON AND TELEBOT
