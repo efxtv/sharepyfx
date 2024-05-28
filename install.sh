@@ -1,6 +1,7 @@
 #!/bin/bash
 
 chmod +x ~/.sharepyfx/bin/sharepyfx
+chmod +x ~/.sharepyfx/*
 
 # Function to check if a command exists
 command_exists() {
